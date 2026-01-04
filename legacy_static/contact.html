@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Instituto Educativo Excelencia</title>
+    <meta name="description" content="Ubícanos en el mapa, llámanos o envíanos un mensaje.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .contact-info-box {
+            background: var(--color-bg-light);
+            padding: 3rem;
+            border-radius: var(--radius-md);
+            height: 100%;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+        }
+
+        .map-container {
+            height: 400px;
+            background: #eee;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .social-links-lg {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
+            color: var(--color-primary);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-5px);
+            background: var(--color-primary);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header (Same as index) -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    Instituto Excelencia
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="academics.html">Académica</a></li>
+                    <li><a href="student-life.html">Vida Estudiantil</a></li>
+                    <li><a href="admissions.html">Admisiones</a></li>
+                    <li><a href="community.html">Comunidad</a></li>
+                    <li><a href="contact.html" class="active">Contacto</a></li>
+                    <li><a href="#" class="btn btn-sm btn-primary">Intranet</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    ☰
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="page-header section-padding text-center">
+            <div class="container">
+                <h1>Contacto</h1>
+                <p>Estamos aquí para responder tus consultas.</p>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <section class="section-padding" style="padding-top: 0;">
+            <div class="container grid-2-col" style="align-items: stretch;">
+
+                <!-- Info Column -->
+                <div>
+                    <div class="contact-info-box">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h3>Dirección</h3>
+                                <p>Av. Educación 1234, Ciudad de Buenos Aires, Argentina</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h3>Teléfonos</h3>
+                                <p><strong>Administración:</strong> +54 11 1234 5678</p>
+                                <p><strong>Secretaría:</strong> +54 11 8765 4321</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h3>Email y Mensajería</h3>
+                                <p>info@institutoexcelencia.edu</p>
+                                <p>WhatsApp: +54 9 11 1122 3344</p>
+                            </div>
+                        </div>
+
+                        <div class="social-links-lg">
+                            <a href="#" class="social-btn" title="Facebook">f</a>
+                            <a href="#" class="social-btn" title="Instagram">ig</a>
+                            <a href="#" class="social-btn" title="LinkedIn">in</a>
+                            <a href="#" class="social-btn" title="YouTube">yt</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Column -->
+                <div>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.016383375806!2d-58.38375908477038!3d-34.60373888045938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1ses!2sar!4v1620000000000!5m2!1ses!2sar"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Same as index) -->
+    <footer>
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
+                <div>
+                    <h3>Instituto Excelencia</h3>
+                    <p>Formando líderes con valores para el futuro.</p>
+                </div>
+                <div>
+                    <h4>Contacto</h4>
+                    <p>Av. Educación 1234, Ciudad</p>
+                    <p>+123 456 7890</p>
+                    <p>info@institutoexcelencia.edu</p>
+                </div>
+                <div>
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="admissions.html">Admisiones</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                        <li><a href="community.html">Plataforma</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center"
+                style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+                <p>&copy; 2024 Instituto Educativo Excelencia. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

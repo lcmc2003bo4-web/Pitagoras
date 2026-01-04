@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida Estudiantil - Instituto Educativo Excelencia</title>
+    <meta name="description"
+        content="Deportes, arte, cultura y compromiso social. Una formación que va más allá del aula.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .activity-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .activity-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-image {
+            flex: 1;
+            height: 300px;
+            background-color: #eee;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            height: 200px;
+            overflow: hidden;
+            border-radius: var(--radius-sm);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header (Same as index) -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    Instituto Excelencia
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="academics.html">Académica</a></li>
+                    <li><a href="student-life.html" class="active">Vida Estudiantil</a></li>
+                    <li><a href="admissions.html">Admisiones</a></li>
+                    <li><a href="community.html">Comunidad</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                    <li><a href="#" class="btn btn-sm btn-primary">Intranet</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    ☰
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="page-header section-padding text-center bg-light">
+            <div class="container">
+                <h1>Más allá del aula</h1>
+                <p>Formación integral a través del deporte, el arte y la solidaridad.</p>
+            </div>
+        </section>
+
+        <!-- Activities -->
+        <section class="section-padding">
+            <div class="container">
+
+                <div class="activity-section">
+                    <div class="activity-content">
+                        <h2>Deportes</h2>
+                        <p class="mb-1">Fomentamos el trabajo en equipo, la disciplina y la vida sana.</p>
+                        <p>Contamos con equipos competitivos en Fútbol, Vóley, Hockey y Rugby. Participamos en torneos
+                            intercolegiales regionales y nacionales.</p>
+                    </div>
+                    <div class="activity-image" style="background-color: #d1fae5;">
+                        ⚽️
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <div class="activity-content">
+                        <h2>Arte y Cultura</h2>
+                        <p class="mb-1">Espacios para la expresión creativa y la sensibilidad estética.</p>
+                        <p>Ofrecemos talleres de:
+                        <ul style="list-style: disc; margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Música y Coro</li>
+                            <li>Teatro y Comedia Musical</li>
+                            <li>Artes Visuales y Plástica</li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="activity-image" style="background-color: #fce7f3;">
+                        🎭
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <div class="activity-content">
+                        <h2>Pastoral y Voluntariado</h2>
+                        <p class="mb-1">Educando el corazón para servir a los demás.</p>
+                        <p>Nuestros alumnos participan en proyectos solidarios, colectas y visitas a comedores
+                            comunitarios, desarrollando una profunda conciencia social.</p>
+                    </div>
+                    <div class="activity-image" style="background-color: #e0f2fe;">
+                        🤝
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="section-padding bg-primary">
+            <div class="container text-center">
+                <h2 style="color: white; margin-bottom: 2rem;">Nuestras Instalaciones</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="assets/images/hero.png" alt="Aulas Modernas">
+                        <div class="gallery-caption">Aulas Interactivas</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/building_exterior.png" alt="Campus Verde">
+                        <div class="gallery-caption">Campus Verde</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/images/technology.png" alt="Laboratorios">
+                        <div class="gallery-caption">Laboratorio de Innovación</div>
+                    </div>
+                    <div class="gallery-item"
+                        style="background: #333; display: flex; align-items: center; justify-content: center; color: white;">
+                        <span style="font-size: 2rem;">🏀</span>
+                        <div class="gallery-caption">Gimnasio Cubierto</div>
+                    </div>
+                    <div class="gallery-item"
+                        style="background: #555; display: flex; align-items: center; justify-content: center; color: white;">
+                        <span style="font-size: 2rem;">🍽️</span>
+                        <div class="gallery-caption">Comedor</div>
+                    </div>
+                    <div class="gallery-item"
+                        style="background: #777; display: flex; align-items: center; justify-content: center; color: white;">
+                        <span style="font-size: 2rem;">📚</span>
+                        <div class="gallery-caption">Biblioteca</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (Same as index) -->
+    <footer>
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
+                <div>
+                    <h3>Instituto Excelencia</h3>
+                    <p>Formando líderes con valores para el futuro.</p>
+                </div>
+                <div>
+                    <h4>Contacto</h4>
+                    <p>Av. Educación 1234, Ciudad</p>
+                    <p>+123 456 7890</p>
+                    <p>info@institutoexcelencia.edu</p>
+                </div>
+                <div>
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="admissions.html">Admisiones</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                        <li><a href="community.html">Plataforma</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center"
+                style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+                <p>&copy; 2024 Instituto Educativo Excelencia. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

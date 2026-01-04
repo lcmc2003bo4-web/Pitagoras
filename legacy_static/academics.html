@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Académica - Instituto Educativo Excelencia</title>
+    <meta name="description"
+        content="Niveles Primario y Secundario, bilingüismo certificado y tecnología educativa de vanguardia.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .level-card {
+            background: #fff;
+            border-left: 5px solid var(--color-primary);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .level-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .level-icon {
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+        }
+
+        .tech-section {
+            background-color: #111;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-content {
+            z-index: 2;
+            position: relative;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .tech-img {
+            border-radius: var(--radius-md);
+            box-shadow: 0 0 20px rgba(0, 255, 200, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header (Same as index) -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    Instituto Excelencia
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="academics.html" class="active">Académica</a></li>
+                    <li><a href="student-life.html">Vida Estudiantil</a></li>
+                    <li><a href="admissions.html">Admisiones</a></li>
+                    <li><a href="community.html">Comunidad</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                    <li><a href="#" class="btn btn-sm btn-primary">Intranet</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    ☰
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="page-header section-padding text-center bg-light">
+            <div class="container">
+                <h1>Excelencia Académica</h1>
+                <p>Curriculum bilingüe enfocado en el desarrollo de competencias para el siglo XXI.</p>
+            </div>
+        </section>
+
+        <!-- Levels Section -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="level-card">
+                    <div class="level-header">
+                        <h2>Nivel Primario</h2>
+                        <div class="level-icon">🎒</div>
+                    </div>
+                    <p class="mb-1"><strong>Enfoque:</strong> Desarrollo integral, seguridad y amor por el aprendizaje.
+                    </p>
+                    <p>En esta etapa fundacional, priorizamos el aprendizaje a través de la experiencia y el juego
+                        constructivo. Fomentamos la curiosidad natural del niño y consolidamos las habilidades básicas
+                        de lectoescritura y cálculo en un entorno bilingüe inmersivo.</p>
+                </div>
+
+                <div class="level-card" style="border-left-color: var(--color-secondary);">
+                    <div class="level-header">
+                        <h2>Nivel Secundario</h2>
+                        <div class="level-icon">🎓</div>
+                    </div>
+                    <p class="mb-1"><strong>Enfoque:</strong> Autonomía, rigor académico y preparación universitaria.
+                    </p>
+                    <p>Preparamos a nuestros alumnos para los desafíos de la educación superior y el mundo laboral.
+                        Nuestro programa incluye orientación vocacional personalizada, proyectos interdisciplinarios y
+                        certificaciones internacionales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use of Technology -->
+        <section class="section-padding tech-section">
+            <div class="container tech-content">
+                <div class="tech-grid">
+                    <div>
+                        <h2 style="color: var(--color-white)">Tecnología e Innovación</h2>
+                        <p class="text-white mb-2">Más allá de usar dispositivos, enseñamos a crear y resolver problemas
+                            con tecnología.</p>
+                        <ul style="list-style: disc; margin-left: 1.5rem; color: #ccc;">
+                            <li class="mb-1">Robótica y programación desde nivel primario.</li>
+                            <li class="mb-1">Laboratorio de ciencias con equipamiento digital.</li>
+                            <li class="mb-1">Aulas virtuales y plataformas de aprendizaje colaborativo.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="assets/images/technology.png" alt="Estudiantes usando tecnología" class="tech-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages -->
+        <section class="section-padding text-center">
+            <div class="container">
+                <h2>Formación Bilingüe</h2>
+                <p class="mb-2">Ciudadanos del mundo, capaces de comunicarse sin fronteras.</p>
+
+                <div class="grid-3-col">
+                    <div class="value-card" style="border-color: #eee; background: white;">
+                        <h3>Inglés Intensivo</h3>
+                        <p>Inmersión desde sala de 3 años. Materias curriculares dictadas en inglés (Science, History,
+                            Lit).</p>
+                    </div>
+                    <div class="value-card" style="border-color: #eee; background: white;">
+                        <h3>Certificaciones</h3>
+                        <p>Centro preparador de exámenes Cambridge (PET, FCE, CAE) y TOEFL.</p>
+                    </div>
+                    <div class="value-card" style="border-color: #eee; background: white;">
+                        <h3>Intercambios</h3>
+                        <p>Oportunidades de viajes culturales y académicos a países de habla inglesa en los últimos
+                            años.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Same as index) -->
+    <footer>
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
+                <div>
+                    <h3>Instituto Excelencia</h3>
+                    <p>Formando líderes con valores para el futuro.</p>
+                </div>
+                <div>
+                    <h4>Contacto</h4>
+                    <p>Av. Educación 1234, Ciudad</p>
+                    <p>+123 456 7890</p>
+                    <p>info@institutoexcelencia.edu</p>
+                </div>
+                <div>
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="admissions.html">Admisiones</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                        <li><a href="community.html">Plataforma</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center"
+                style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+                <p>&copy; 2024 Instituto Educativo Excelencia. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
