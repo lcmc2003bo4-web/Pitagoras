@@ -1,6 +1,19 @@
 import './globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Inter, Outfit } from 'next/font/google';
+
+const inter = Inter({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-inter',
+});
+
+const outfit = Outfit({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-outfit',
+});
 
 export const metadata = {
     title: 'Instituto Educativo Excelencia',
@@ -9,16 +22,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="es">
-            <head>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-                {/* Fonts are loaded here or could be optimized with next/font */}
-                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
-            </head>
-            <body>
+        <html lang="es" className={`${inter.variable} ${outfit.variable}`}>
+            <body className="bg-background-alt text-primary-light min-h-screen flex flex-col font-sans">
                 <Header />
-                <main id="main-content">
+                <main id="main-content" className="flex-grow">
                     {children}
                 </main>
                 <Footer />
