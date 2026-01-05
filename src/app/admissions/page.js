@@ -6,33 +6,22 @@ function FAQItem({ question, answer }) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className={`faq-item ${isOpen ? 'active' : ''}`} style={{ background: 'white', borderBottom: '1px solid #eee' }}>
-            <div
-                className="faq-question"
+        <div className="border-b border-gray-100 bg-white first:rounded-t-xl last:rounded-b-xl overflow-hidden">
+            <button
+                className="w-full flex justify-between items-center p-6 text-left font-semibold text-gray-800 hover:bg-gray-50 transition-colors focus:outline-none"
                 onClick={() => setIsOpen(!isOpen)}
-                style={{
-                    padding: '1.5rem',
-                    fontWeight: '600',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center'
-                }}
             >
                 {question}
-                <span>{isOpen ? '-' : '+'}</span>
-            </div>
+                <span className={`text-xl font-bold text-secondary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+                    {isOpen ? '−' : '+'}
+                </span>
+            </button>
             <div
-                className="faq-answer"
-                style={{
-                    maxHeight: isOpen ? '200px' : '0',
-                    overflow: 'hidden',
-                    transition: 'maxHeight 0.3s ease',
-                    padding: isOpen ? '0 1.5rem 1.5rem' : '0 1.5rem',
-                    color: 'var(--color-text-light)'
-                }}
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
             >
-                <p>{answer}</p>
+                <div className="p-6 pt-0 text-gray-500 leading-relaxed">
+                    {answer}
+                </div>
             </div>
         </div>
     );
@@ -42,90 +31,99 @@ export default function Admissions() {
     return (
         <>
             {/* Page Header */}
-            <section className="page-header section-padding text-center bg-light">
+            <section className="pt-32 pb-16 text-center bg-background-alt">
                 <div className="container">
-                    <h1>Proceso de Admisión</h1>
-                    <p>Únete a nuestra comunidad educativa. ¡Abiertas las inscripciones para el próximo ciclo!</p>
+                    <h1 className="mb-4">Proceso de Admisión</h1>
+                    <p className="text-xl text-gray-600 font-medium">Únete a nuestra comunidad educativa. ¡Abiertas las inscripciones para el próximo ciclo!</p>
                 </div>
             </section>
 
+
             {/* Steps */}
-            <section className="section-padding">
+            <section className="py-24">
                 <div className="container text-center">
-                    <h2>Pasos para la Inscripción</h2>
-                    <div className="steps-container" style={{ display: 'flex', justifyContent: 'space-between', position: 'relative', margin: '4rem 0', flexWrap: 'wrap', gap: '2rem' }}>
-                        {/* Note: ::before pseudo-element for line is tricky in inline styles, skipped for now or needs CSS module */}
-                        <div className="step-item" style={{ flex: 1, textAlign: 'center', minWidth: '200px' }}>
-                            <div className="step-number" style={{ width: '80px', height: '80px', background: 'var(--color-primary)', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', fontWeight: 'bold', margin: '0 auto 1rem auto', border: '5px solid white', boxShadow: 'var(--shadow-sm)' }}>1</div>
-                            <h3>Entrevista</h3>
-                            <p>Solicita una reunión con el equipo directivo para conocernos.</p>
+                    <h2 className="mb-16">Pasos para la Inscripción</h2>
+                    <div className="flex flex-wrap justify-between gap-8 relative">
+                        {/* Connecting Line (Desktop) */}
+                        <div className="hidden md:block absolute top-[40px] left-[10%] right-[10%] h-1 bg-gray-200 -z-10"></div>
+
+                        <div className="flex-1 min-w-[200px] group">
+                            <div className="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 border-4 border-white shadow-soft-md group-hover:scale-110 group-hover:bg-secondary transition-all duration-300">1</div>
+                            <h3 className="text-xl font-bold mb-3">Entrevista</h3>
+                            <p className="text-gray-600 max-w-xs mx-auto">Solicita una reunión con el equipo directivo para conocernos.</p>
                         </div>
-                        <div className="step-item" style={{ flex: 1, textAlign: 'center', minWidth: '200px' }}>
-                            <div className="step-number" style={{ width: '80px', height: '80px', background: 'var(--color-primary)', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', fontWeight: 'bold', margin: '0 auto 1rem auto', border: '5px solid white', boxShadow: 'var(--shadow-sm)' }}>2</div>
-                            <h3>Evaluación</h3>
-                            <p>Examen de nivelación (inglés y matemáticas) y psicotécnico.</p>
+                        <div className="flex-1 min-w-[200px] group">
+                            <div className="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 border-4 border-white shadow-soft-md group-hover:scale-110 group-hover:bg-secondary transition-all duration-300">2</div>
+                            <h3 className="text-xl font-bold mb-3">Evaluación</h3>
+                            <p className="text-gray-600 max-w-xs mx-auto">Examen de nivelación (inglés y matemáticas) y psicotécnico.</p>
                         </div>
-                        <div className="step-item" style={{ flex: 1, textAlign: 'center', minWidth: '200px' }}>
-                            <div className="step-number" style={{ width: '80px', height: '80px', background: 'var(--color-primary)', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', fontWeight: 'bold', margin: '0 auto 1rem auto', border: '5px solid white', boxShadow: 'var(--shadow-sm)' }}>3</div>
-                            <h3>Matrícula</h3>
-                            <p>Presentación de documentación y reserva de vacante.</p>
+                        <div className="flex-1 min-w-[200px] group">
+                            <div className="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6 border-4 border-white shadow-soft-md group-hover:scale-110 group-hover:bg-secondary transition-all duration-300">3</div>
+                            <h3 className="text-xl font-bold mb-3">Matrícula</h3>
+                            <p className="text-gray-600 max-w-xs mx-auto">Presentación de documentación y reserva de vacante.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Lead Form */}
-            <section className="section-padding bg-light">
+            <section className="py-24 bg-background-alt">
                 <div className="container text-center">
-                    <h2>Solicitar Información</h2>
-                    <p className="mb-2">Completa el formulario y nos pondremos en contacto contigo.</p>
-                    <div className="form-box" style={{ background: 'white', padding: '2rem', borderRadius: 'var(--radius-md)', boxShadow: 'var(--shadow-md)', maxWidth: '600px', margin: '0 auto' }}>
+                    <h2 className="mb-4">Solicitar Información</h2>
+                    <p className="text-gray-600 mb-12">Completa el formulario y nos pondremos en contacto contigo.</p>
+                    <div className="bg-white p-8 md:p-12 rounded-3xl shadow-soft-md max-w-2xl mx-auto border border-gray-100">
                         <form action="#" method="POST" onSubmit={(e) => { e.preventDefault(); alert('Gracias por tu interés. Te contactaremos pronto.'); }}>
-                            <div className="form-group" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
-                                <label htmlFor="name" style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Nombre del Apoderado</label>
-                                <input type="text" id="name" required placeholder="Tu nombre completo" style={{ width: '100%', padding: '0.75rem', border: '1px solid #ddd', borderRadius: 'var(--radius-sm)', fontFamily: 'inherit' }} />
+                            <div className="mb-6 text-left">
+                                <label htmlFor="name" className="block mb-2 font-semibold text-gray-700">Nombre del Apoderado</label>
+                                <input type="text" id="name" required placeholder="Tu nombre completo" className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" />
                             </div>
-                            <div className="form-group" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
-                                <label htmlFor="email" style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Correo Electrónico</label>
-                                <input type="email" id="email" required placeholder="ejemplo@email.com" style={{ width: '100%', padding: '0.75rem', border: '1px solid #ddd', borderRadius: 'var(--radius-sm)', fontFamily: 'inherit' }} />
+                            <div className="mb-6 text-left">
+                                <label htmlFor="email" className="block mb-2 font-semibold text-gray-700">Correo Electrónico</label>
+                                <input type="email" id="email" required placeholder="ejemplo@email.com" className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" />
                             </div>
-                            <div className="form-group" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
-                                <label htmlFor="phone" style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Teléfono</label>
-                                <input type="tel" id="phone" required placeholder="+54 9 11..." style={{ width: '100%', padding: '0.75rem', border: '1px solid #ddd', borderRadius: 'var(--radius-sm)', fontFamily: 'inherit' }} />
+                            <div className="mb-6 text-left">
+                                <label htmlFor="phone" className="block mb-2 font-semibold text-gray-700">Teléfono</label>
+                                <input type="tel" id="phone" required placeholder="+54 9 11..." className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" />
                             </div>
-                            <div className="form-group" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
-                                <label htmlFor="level" style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500' }}>Nivel de Interés</label>
-                                <select id="level" style={{ width: '100%', padding: '0.75rem', border: '1px solid #ddd', borderRadius: 'var(--radius-sm)', fontFamily: 'inherit' }}>
+                            <div className="mb-8 text-left">
+                                <label htmlFor="level" className="block mb-2 font-semibold text-gray-700">Nivel de Interés</label>
+                                <select id="level" className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all bg-white">
                                     <option value="primaria">Nivel Primario</option>
                                     <option value="secundaria">Nivel Secundario</option>
                                 </select>
                             </div>
-                            <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Enviar Solicitud</button>
+                            <button type="submit" className="btn btn-primary w-full py-4 text-lg shadow-lg hover:shadow-xl">Enviar Solicitud</button>
                         </form>
                     </div>
                 </div>
             </section>
 
             {/* Open Days */}
-            <section className="section-padding text-center">
+            <section className="py-24 text-center">
                 <div className="container">
-                    <h2>Visitas Guiadas (Open Days)</h2>
-                    <p className="mb-2">Ven a recorrer nuestras instalaciones.</p>
-                    <div className="grid-3-col" style={{ justifyContent: 'center' }}>
-                        <div className="value-card" style={{ borderColor: '#eee' }}>
-                            <h3>Mayo</h3>
-                            <p className="lead" style={{ margin: 0 }}>15 y 29</p>
-                            <p>10:00 AM</p>
+                    <h2 className="mb-4">Visitas Guiadas (Open Days)</h2>
+                    <p className="text-gray-600 mb-12 text-lg">Ven a recorrer nuestras instalaciones y conoce nuestra propuesta.</p>
+                    <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-soft-sm hover:shadow-soft-lg transition-all group hover:-translate-y-2">
+                            <div className="text-accent font-bold text-xl uppercase tracking-widest mb-4">Mayo</div>
+                            <div className="text-4xl font-bold font-heading text-primary mb-2 group-hover:text-secondary transition-colors">15 y 29</div>
+                            <div className="flex items-center justify-center gap-2 text-gray-500 mt-4">
+                                <span>🕒</span> 10:00 AM
+                            </div>
                         </div>
-                        <div className="value-card" style={{ borderColor: '#eee' }}>
-                            <h3>Junio</h3>
-                            <p className="lead" style={{ margin: 0 }}>12 y 26</p>
-                            <p>10:00 AM</p>
+                        <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-soft-sm hover:shadow-soft-lg transition-all group hover:-translate-y-2">
+                            <div className="text-accent font-bold text-xl uppercase tracking-widest mb-4">Junio</div>
+                            <div className="text-4xl font-bold font-heading text-primary mb-2 group-hover:text-secondary transition-colors">12 y 26</div>
+                            <div className="flex items-center justify-center gap-2 text-gray-500 mt-4">
+                                <span>🕒</span> 10:00 AM
+                            </div>
                         </div>
-                        <div className="value-card" style={{ borderColor: '#eee' }}>
-                            <h3>Julio</h3>
-                            <p className="lead" style={{ margin: 0 }}>10</p>
-                            <p>14:00 PM</p>
+                        <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-soft-sm hover:shadow-soft-lg transition-all group hover:-translate-y-2">
+                            <div className="text-accent font-bold text-xl uppercase tracking-widest mb-4">Julio</div>
+                            <div className="text-4xl font-bold font-heading text-primary mb-2 group-hover:text-secondary transition-colors">10</div>
+                            <div className="flex items-center justify-center gap-2 text-gray-500 mt-4">
+                                <span>🕒</span> 14:00 PM
+                            </div>
                         </div>
                     </div>
                 </div>
