@@ -3,7 +3,7 @@ export default function Contact() {
     return (
         <>
             {/* Page Header */}
-            <section className="page-header section-padding text-center">
+            <section className="pt-32 pb-16 text-center bg-light">
                 <div className="container">
                     <h1>Contacto</h1>
                     <p>Estamos aquí para responder tus consultas.</p>

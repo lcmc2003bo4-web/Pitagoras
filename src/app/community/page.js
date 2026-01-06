@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Community() {
-    // Basic calendar state (mocked)
+    // Basic calendar state
+    const [currentMonth, setCurrentMonth] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState(new Date().getDate());
 
     // Mock events
@@ -50,10 +51,37 @@ export default function Community() {
                             </form>
                         </div>
 
+
                         {/* Interactive Calendar Widget */}
                         <div className="bg-white rounded-3xl shadow-soft-md border border-gray-100 overflow-hidden">
-                            <div className="bg-primary text-white p-6 text-center">
-                                <h3 className="text-lg font-bold">Mayo 2024</h3>
+                            <div className="bg-primary text-white p-6 flex flex-col items-center">
+                                <div className="flex items-center justify-between w-full mb-4">
+                                    <button
+                                        onClick={() => {
+                                            const newDate = new Date(currentMonth);
+                                            newDate.setMonth(newDate.getMonth() - 1);
+                                            setCurrentMonth(newDate);
+                                            setSelectedDate(null);
+                                        }}
+                                        className="p-2 hover:bg-white/20 rounded-full transition-colors text-white"
+                                    >
+                                        ◀
+                                    </button>
+                                    <h3 className="text-lg font-bold text-white capitalize">
+                                        {currentMonth.toLocaleString('es-ES', { month: 'long', year: 'numeric' })}
+                                    </h3>
+                                    <button
+                                        onClick={() => {
+                                            const newDate = new Date(currentMonth);
+                                            newDate.setMonth(newDate.getMonth() + 1);
+                                            setCurrentMonth(newDate);
+                                            setSelectedDate(null);
+                                        }}
+                                        className="p-2 hover:bg-white/20 rounded-full transition-colors text-white"
+                                    >
+                                        ▶
+                                    </button>
+                                </div>
                             </div>
                             <div className="p-6">
                                 <div className="grid grid-cols-7 gap-2 mb-4 text-center text-xs font-bold text-gray-400">
@@ -61,12 +89,13 @@ export default function Community() {
                                 </div>
                                 <div className="grid grid-cols-7 gap-2">
                                     {/* Empty days padding */}
-                                    {[...Array(3)].map((_, i) => <div key={`empty-${i}`}></div>)}
+                                    {[...Array(new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1).getDay())].map((_, i) => <div key={`empty-${i}`}></div>)}
 
                                     {/* Days */}
-                                    {[...Array(31)].map((_, i) => {
+                                    {[...Array(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0).getDate())].map((_, i) => {
                                         const day = i + 1;
                                         const isSelected = selectedDate === day;
+                                        // Mock checking event for current month only for simplicity in demo
                                         const isEvent = hasEvent(day);
                                         return (
                                             <button
@@ -87,8 +116,10 @@ export default function Community() {
 
                             {/* Selected Date Events */}
                             <div className="border-t border-gray-100 p-6 bg-gray-50">
-                                <h4 className="text-sm uppercase tracking-wider font-bold text-gray-400 mb-4">Eventos del día {selectedDate}</h4>
-                                {getEventsForDay(selectedDate).length > 0 ? (
+                                <h4 className="text-sm uppercase tracking-wider font-bold text-gray-400 mb-4">
+                                    {selectedDate ? `Eventos del día ${selectedDate}` : 'Seleccione un día'}
+                                </h4>
+                                {selectedDate && getEventsForDay(selectedDate).length > 0 ? (
                                     <div className="space-y-3">
                                         {getEventsForDay(selectedDate).map((evt, idx) => (
                                             <div key={idx} className="flex items-start gap-3 bg-white p-3 rounded-xl border border-gray-100 shadow-sm">
@@ -101,7 +132,9 @@ export default function Community() {
                                         ))}
                                     </div>
                                 ) : (
-                                    <p className="text-sm text-gray-400 italic">No hay eventos programados.</p>
+                                    <p className="text-sm text-gray-400 italic">
+                                        {selectedDate ? 'No hay eventos programados.' : 'Haga clic en un día para ver detalles.'}
+                                    </p>
                                 )}
                             </div>
                         </div>
