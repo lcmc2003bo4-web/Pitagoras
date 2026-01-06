@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import { blogPosts } from '@/data/blog-posts';
 
 export default function Home() {
     return (
         <>
             {/* Hero Section */}
-            <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-background-alt">
+            <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-background-alt pt-32 pb-20">
                 {/* Background Decor - Gradient Orbs */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
                     <div className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-secondary/10 blur-3xl animate-pulse"></div>
@@ -32,7 +33,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="relative">
+                    <div className="relative mt-8 lg:mt-0">
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50 transform rotate-2 hover:rotate-0 transition-all duration-500">
                             {/* Placeholder for Hero Image - In production use next/image */}
                             <img src="/assets/images/hero.png" alt="Estudiantes en laboratorio modernas" className="w-full h-auto object-cover scale-105 hover:scale-100 transition-transform duration-700" />
@@ -124,62 +125,40 @@ export default function Home() {
                             <span className="text-secondary font-semibold uppercase tracking-wider text-sm mb-2 block">Actualidad</span>
                             <h2>Noticias Destacadas</h2>
                         </div>
-                        <Link href="/news" className="hidden md:inline-flex items-center text-primary font-semibold hover:text-secondary transition-colors">
+                        <Link href="/blog" className="hidden md:inline-flex items-center text-primary font-semibold hover:text-secondary transition-colors">
                             Ver todas las noticias <span className="ml-2">→</span>
                         </Link>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
-                        <article className="bg-white rounded-3xl overflow-hidden shadow-soft-sm hover:shadow-soft-lg transition-all duration-300 group">
-                            <div className="h-48 bg-gray-200 relative overflow-hidden">
-                                <div className="absolute inset-0 flex items-center justify-center text-gray-400 bg-gray-100 group-hover:scale-105 transition-transform duration-500">IMG</div>
-                            </div>
-                            <div className="p-8">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className="px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold">Académico</span>
-                                    <span className="text-gray-400 text-xs">10 de Marzo, 2024</span>
-                                </div>
-                                <h3 className="text-xl font-bold mb-3 group-hover:text-secondary transition-colors">Ganadores de la Feria de Ciencias Regional</h3>
-                                <p className="text-gray-500 text-sm mb-6 line-clamp-2">Nuestros alumnos de secundaria obtuvieron el primer puesto presentando soluciones sustentables.</p>
-                                <Link href="#" className="inline-flex items-center text-sm font-semibold text-primary hover:text-secondary">
-                                    Leer noticia completa
-                                </Link>
-                            </div>
-                        </article>
+                        {blogPosts.map((post) => {
+                            // Define color classes based on category for visual distinction
+                            let categoryColorClass = "bg-blue-50 text-blue-600";
+                            if (post.category === 'Infraestructura') categoryColorClass = "bg-purple-50 text-purple-600";
+                            if (post.category === 'Admisiones') categoryColorClass = "bg-orange-50 text-orange-600";
 
-                        <article className="bg-white rounded-3xl overflow-hidden shadow-soft-sm hover:shadow-soft-lg transition-all duration-300 group">
-                            <div className="h-48 bg-gray-200 relative overflow-hidden">
-                                <div className="absolute inset-0 flex items-center justify-center text-gray-400 bg-gray-100 group-hover:scale-105 transition-transform duration-500">IMG</div>
-                            </div>
-                            <div className="p-8">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className="px-3 py-1 rounded-full bg-purple-50 text-purple-600 text-xs font-semibold">Infraestructura</span>
-                                    <span className="text-gray-400 text-xs">5 de Marzo, 2024</span>
-                                </div>
-                                <h3 className="text-xl font-bold mb-3 group-hover:text-secondary transition-colors">Inauguración del Nuevo Laboratorio STEM</h3>
-                                <p className="text-gray-500 text-sm mb-6 line-clamp-2">Tecnología de punta para el aprendizaje de robótica, programación y ciencias aplicadas.</p>
-                                <Link href="#" className="inline-flex items-center text-sm font-semibold text-primary hover:text-secondary">
-                                    Leer noticia completa
-                                </Link>
-                            </div>
-                        </article>
-
-                        <article className="bg-white rounded-3xl overflow-hidden shadow-soft-sm hover:shadow-soft-lg transition-all duration-300 group">
-                            <div className="h-48 bg-gray-200 relative overflow-hidden">
-                                <div className="absolute inset-0 flex items-center justify-center text-gray-400 bg-gray-100 group-hover:scale-105 transition-transform duration-500">IMG</div>
-                            </div>
-                            <div className="p-8">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className="px-3 py-1 rounded-full bg-orange-50 text-orange-600 text-xs font-semibold">Admisiones</span>
-                                    <span className="text-gray-400 text-xs">28 de Febrero, 2024</span>
-                                </div>
-                                <h3 className="text-xl font-bold mb-3 group-hover:text-secondary transition-colors">Apertura de Inscripciones Ciclo 2025</h3>
-                                <p className="text-gray-500 text-sm mb-6 line-clamp-2">Ya puedes reservar tu vacante para el próximo ciclo. Conoce los requisitos y fechas.</p>
-                                <Link href="#" className="inline-flex items-center text-sm font-semibold text-primary hover:text-secondary">
-                                    Leer noticia completa
-                                </Link>
-                            </div>
-                        </article>
+                            return (
+                                <article key={post.id} className="bg-white rounded-3xl overflow-hidden shadow-soft-sm hover:shadow-soft-lg transition-all duration-300 group flex flex-col h-full">
+                                    <div className="h-48 bg-gray-200 relative overflow-hidden">
+                                        {/* In production, replace with Next/Image using post.image */}
+                                        <div className="absolute inset-0 flex items-center justify-center text-gray-400 bg-gray-100 group-hover:scale-105 transition-transform duration-500">
+                                            {post.image ? <img src={post.image} alt={post.title} className="w-full h-full object-cover" /> : 'IMG'}
+                                        </div>
+                                    </div>
+                                    <div className="p-8 flex-1 flex flex-col">
+                                        <div className="flex items-center gap-3 mb-4">
+                                            <span className={`px-3 py-1 rounded-full text-xs font-semibold ${categoryColorClass}`}>{post.category}</span>
+                                            <span className="text-gray-400 text-xs">{post.date}</span>
+                                        </div>
+                                        <h3 className="text-xl font-bold mb-3 group-hover:text-secondary transition-colors line-clamp-2">{post.title}</h3>
+                                        <p className="text-gray-500 text-sm mb-6 line-clamp-2 flex-grow">{post.excerpt}</p>
+                                        <Link href={`/blog/${post.slug}`} className="inline-flex items-center text-sm font-semibold text-primary hover:text-secondary mt-auto">
+                                            Leer noticia completa
+                                        </Link>
+                                    </div>
+                                </article>
+                            );
+                        })}
                     </div>
                 </div>
             </section>

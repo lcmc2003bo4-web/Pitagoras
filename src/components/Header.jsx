@@ -38,6 +38,7 @@ export default function Header() {
         { label: 'Académica', path: '/academics' },
         { label: 'Vida Estudiantil', path: '/student-life' },
         { label: 'Admisiones', path: '/admissions' },
+        { label: 'Blog', path: '/blog' },
         { label: 'Comunidad', path: '/community' },
         { label: 'Contacto', path: '/contact' },
     ];
@@ -45,8 +46,8 @@ export default function Header() {
     return (
         <header
             className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
-                    ? 'bg-white/80 backdrop-blur-md shadow-glass border-b border-gray-100'
-                    : 'bg-transparent py-4'
+                ? 'bg-white/80 backdrop-blur-md shadow-glass border-b border-gray-100'
+                : 'bg-transparent py-4'
                 }`}
         >
             <div className="container">
