@@ -1,31 +1,10 @@
-'use client';
+import AdmissionsForm from '@/components/admissions/AdmissionsForm';
+import FAQSection from '@/components/admissions/FAQSection';
 
-import { useState } from 'react';
-
-function FAQItem({ question, answer }) {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-        <div className="border-b border-gray-100 bg-white first:rounded-t-xl last:rounded-b-xl overflow-hidden">
-            <button
-                className="w-full flex justify-between items-center p-6 text-left font-semibold text-gray-800 hover:bg-gray-50 transition-colors focus:outline-none"
-                onClick={() => setIsOpen(!isOpen)}
-            >
-                {question}
-                <span className={`text-xl font-bold text-secondary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-                    {isOpen ? '−' : '+'}
-                </span>
-            </button>
-            <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
-            >
-                <div className="p-6 pt-0 text-gray-500 leading-relaxed">
-                    {answer}
-                </div>
-            </div>
-        </div>
-    );
-}
+export const metadata = {
+    title: 'Admisiones | Instituto Educativo Excelencia',
+    description: 'Proceso de inscripción, pasos, formulario de solicitud y fechas de visitas guiadas.',
+};
 
 export default function Admissions() {
     return (
@@ -72,28 +51,7 @@ export default function Admissions() {
                     <h2 className="mb-4">Solicitar Información</h2>
                     <p className="text-gray-600 mb-12">Completa el formulario y nos pondremos en contacto contigo.</p>
                     <div className="bg-white p-8 md:p-12 rounded-3xl shadow-soft-md max-w-2xl mx-auto border border-gray-100">
-                        <form action="#" method="POST" onSubmit={(e) => { e.preventDefault(); alert('Gracias por tu interés. Te contactaremos pronto.'); }}>
-                            <div className="mb-6 text-left">
-                                <label htmlFor="name" className="block mb-2 font-semibold text-gray-700">Nombre del Apoderado</label>
-                                <input type="text" id="name" required placeholder="Tu nombre completo" className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" />
-                            </div>
-                            <div className="mb-6 text-left">
-                                <label htmlFor="email" className="block mb-2 font-semibold text-gray-700">Correo Electrónico</label>
-                                <input type="email" id="email" required placeholder="ejemplo@email.com" className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" />
-                            </div>
-                            <div className="mb-6 text-left">
-                                <label htmlFor="phone" className="block mb-2 font-semibold text-gray-700">Teléfono</label>
-                                <input type="tel" id="phone" required placeholder="+54 9 11..." className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all" />
-                            </div>
-                            <div className="mb-8 text-left">
-                                <label htmlFor="level" className="block mb-2 font-semibold text-gray-700">Nivel de Interés</label>
-                                <select id="level" className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all bg-white">
-                                    <option value="primaria">Nivel Primario</option>
-                                    <option value="secundaria">Nivel Secundario</option>
-                                </select>
-                            </div>
-                            <button type="submit" className="btn btn-primary w-full py-4 text-lg shadow-lg hover:shadow-xl">Enviar Solicitud</button>
-                        </form>
+                        <AdmissionsForm />
                     </div>
                 </div>
             </section>
@@ -133,24 +91,7 @@ export default function Admissions() {
             <section className="section-padding bg-light pb-24">
                 <div className="container" style={{ maxWidth: '800px' }}>
                     <h2 className="text-center mb-2">Preguntas Frecuentes</h2>
-                    <div className="faq-container">
-                        <FAQItem
-                            question="¿Tienen servicio de comedor?"
-                            answer="Sí, contamos con cocina propia y nutricionistas que elaboran un menú balanceado mensual."
-                        />
-                        <FAQItem
-                            question="¿Es obligatorio el uniforme?"
-                            answer="Sí, el uso del uniforme es obligatorio tanto para clases regulares como para educación física. Se adquiere en proveedores autorizados."
-                        />
-                        <FAQItem
-                            question="¿Ofrecen transporte escolar?"
-                            answer="La institución no posee micros propios, pero podemos facilitar el contacto de empresas de transporte de confianza que cubren la zona."
-                        />
-                        <FAQItem
-                            question="¿Cuál es el horario de clases?"
-                            answer="Primaria: 8:00 a 16:00 hs. | Secundaria: 7:45 a 16:15 hs."
-                        />
-                    </div>
+                    <FAQSection />
                 </div>
             </section>
         </>

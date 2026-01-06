@@ -1,3 +1,9 @@
+import Image from 'next/image';
+
+export const metadata = {
+    title: 'Propuesta Académica | Instituto Educativo Excelencia',
+    description: 'Nivel primario y secundario con formación bilingüe, tecnología innovadora y preparación universitaria.',
+};
 
 export default function Academics() {
     return (
@@ -93,11 +99,14 @@ export default function Academics() {
                         </div>
                         <div className="relative">
                             <div className="absolute -inset-4 bg-gradient-to-r from-secondary to-accent opacity-30 blur-2xl rounded-3xl"></div>
-                            <img
-                                src="/assets/images/technology.png"
-                                alt="Estudiantes usando tecnología"
-                                className="relative rounded-2xl shadow-2xl border border-white/10 w-full object-cover transform hover:scale-[1.02] transition-transform duration-500"
-                            />
+                            <div className="relative w-full h-[400px] rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
+                                <Image
+                                    src="/assets/images/technology.png"
+                                    alt="Estudiantes usando tecnología"
+                                    fill
+                                    className="object-cover hover:scale-[1.02] transition-transform duration-500"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

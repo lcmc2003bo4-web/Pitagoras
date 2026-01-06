@@ -1,9 +1,15 @@
+import ContactForm from '@/components/contact/ContactForm';
+
+export const metadata = {
+    title: 'Contacto | Instituto Educativo Excelencia',
+    description: 'Comunícate con nosotros. Información de dirección, teléfono, email y formulario de contacto.',
+};
 
 export default function Contact() {
     return (
         <>
             {/* Page Header */}
-            <section className="pt-32 pb-16 text-center bg-light">
+            <section className="pt-32 pb-16 text-center bg-gray-50">
                 <div className="container">
                     <h1>Contacto</h1>
                     <p>Estamos aquí para responder tus consultas.</p>
@@ -42,7 +48,9 @@ export default function Contact() {
                                 </div>
                             </div>
 
-                            <div className="flex gap-4 mt-12">
+                            <ContactForm />
+
+                            <div className="flex gap-4 mt-12 justify-center">
                                 <a href="#" className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-lg shadow-sm text-primary hover:bg-secondary hover:text-white transition-all transform hover:-translate-y-1" title="Facebook">f</a>
                                 <a href="#" className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-lg shadow-sm text-primary hover:bg-secondary hover:text-white transition-all transform hover:-translate-y-1" title="Instagram">ig</a>
                                 <a href="#" className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-lg shadow-sm text-primary hover:bg-secondary hover:text-white transition-all transform hover:-translate-y-1" title="LinkedIn">in</a>
@@ -66,3 +74,4 @@ export default function Contact() {
         </>
     );
 }
+

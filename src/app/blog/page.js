@@ -1,5 +1,11 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { blogPosts } from '@/data/blog-posts';
+
+export const metadata = {
+    title: 'Blog Institucional | Instituto Educativo Excelencia',
+    description: 'Novedades, eventos y artículos de interés para nuestra comunidad educativa.',
+};
 
 export default function BlogPage() {
     return (
@@ -40,7 +46,7 @@ export default function BlogPage() {
                                 <article className="bg-white rounded-3xl overflow-hidden shadow-soft-sm group-hover:shadow-soft-xl transition-all duration-300 h-full flex flex-col border border-gray-100 group-hover:border-secondary/20 group-hover:-translate-y-1">
                                     <div className="h-56 bg-gray-200 relative overflow-hidden">
                                         <div className="absolute inset-0 flex items-center justify-center text-gray-400 bg-gray-100 group-hover:scale-105 transition-transform duration-700">
-                                            {post.image ? <img src={post.image} alt={post.title} className="w-full h-full object-cover" /> : 'IMG'}
+                                            {post.image ? <Image src={post.image} alt={post.title} fill className="object-cover" /> : 'IMG'}
                                         </div>
                                         <div className="absolute top-4 left-4">
                                             <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide backdrop-blur-md bg-white/90 ${categoryColorClass.replace('bg-', 'text-')}`}>

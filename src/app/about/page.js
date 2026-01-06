@@ -1,5 +1,12 @@
 
 
+import Image from 'next/image';
+
+export const metadata = {
+    title: 'Sobre Nosotros | Instituto Educativo Excelencia',
+    description: 'Conoce nuestra historia de 30 años, nuestra misión de formar personas íntegras y nuestro equipo directivo comprometido.',
+};
+
 export default function About() {
     return (
         <>
@@ -26,11 +33,14 @@ export default function About() {
                         </div>
                     </div>
                     <div className="relative">
-                        <img
-                            src="/assets/images/building_exterior.png"
-                            alt="Fachada del Instituto"
-                            className="rounded-2xl shadow-soft-xl max-w-full md:max-w-xl mx-auto object-cover hover:scale-[1.02] transition-transform duration-500"
-                        />
+                        <div className="relative h-[400px] w-full rounded-2xl shadow-soft-xl overflow-hidden">
+                            <Image
+                                src="/assets/images/building_exterior.png"
+                                alt="Fachada del Instituto"
+                                fill
+                                className="object-cover hover:scale-[1.02] transition-transform duration-500"
+                            />
+                        </div>
                         {/* Decorative element */}
                         <div className="absolute -z-10 top-10 -right-4 w-full h-full border-2 border-secondary/10 rounded-2xl"></div>
                     </div>
@@ -100,7 +110,9 @@ export default function About() {
                         <div className="bg-white p-8 rounded-2xl shadow-soft-sm hover:shadow-soft-lg transition-all duration-300 border border-gray-100 group">
                             <div className="relative mb-6 mx-auto w-40 h-40">
                                 <div className="absolute inset-0 bg-secondary/10 rounded-full scale-0 group-hover:scale-110 transition-transform duration-300"></div>
-                                <img src="/assets/images/director.png" alt="Directora General" className="w-40 h-40 rounded-full object-cover border-4 border-white shadow-md relative z-10" />
+                                <div className="w-40 h-40 relative z-10 rounded-full overflow-hidden border-4 border-white shadow-md">
+                                    <Image src="/assets/images/director.png" alt="Directora General" fill className="object-cover" />
+                                </div>
                             </div>
                             <h3 className="text-xl font-bold mb-1">María González</h3>
                             <p className="text-secondary font-medium mb-4 text-sm uppercase tracking-wider">Directora General</p>
@@ -110,7 +122,9 @@ export default function About() {
                         <div className="bg-white p-8 rounded-2xl shadow-soft-sm hover:shadow-soft-lg transition-all duration-300 border border-gray-100 group">
                             <div className="relative mb-6 mx-auto w-40 h-40">
                                 <div className="absolute inset-0 bg-secondary/10 rounded-full scale-0 group-hover:scale-110 transition-transform duration-300"></div>
-                                <img src="/assets/images/coordinator_primary.png" alt="Coordinador Primaria" className="w-40 h-40 rounded-full object-cover border-4 border-white shadow-md relative z-10" />
+                                <div className="w-40 h-40 relative z-10 rounded-full overflow-hidden border-4 border-white shadow-md">
+                                    <Image src="/assets/images/coordinator_primary.png" alt="Coordinador Primaria" fill className="object-cover" />
+                                </div>
                             </div>
                             <h3 className="text-xl font-bold mb-1">Juan Pérez</h3>
                             <p className="text-secondary font-medium mb-4 text-sm uppercase tracking-wider">Coord. Nivel Primario</p>
@@ -120,9 +134,12 @@ export default function About() {
                         <div className="bg-white p-8 rounded-2xl shadow-soft-sm hover:shadow-soft-lg transition-all duration-300 border border-gray-100 group">
                             <div className="relative mb-6 mx-auto w-40 h-40">
                                 <div className="absolute inset-0 bg-secondary/10 rounded-full scale-0 group-hover:scale-110 transition-transform duration-300"></div>
-                                <img src="/assets/images/coordinator_secondary.png" alt="Coordinadora Secundaria" className="w-40 h-40 rounded-full object-cover border-4 border-white shadow-md relative z-10" />
+                                <div className="w-40 h-40 relative z-10 rounded-full overflow-hidden border-4 border-white shadow-md">
+                                    <Image src="/assets/images/coordinator_secondary.png" alt="Coordinadora Secundaria" fill className="object-cover" />
+                                </div>
                             </div>
                             <h3 className="text-xl font-bold mb-1">Ana Rodríguez</h3>
+
                             <p className="text-secondary font-medium mb-4 text-sm uppercase tracking-wider">Coord. Nivel Secundario</p>
                             <p className="text-gray-500 text-sm leading-relaxed">Máster en Educación Internacional. Lidera los programas de preparación universitaria y bilingüismo.</p>
                         </div>

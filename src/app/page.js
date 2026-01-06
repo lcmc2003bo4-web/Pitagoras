@@ -1,5 +1,11 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { blogPosts } from '@/data/blog-posts';
+
+export const metadata = {
+    title: 'Instituto Educativo Excelencia | Formando Líderes',
+    description: 'Educación bilingüe integral, innovación tecnológica y formación en valores. Niveles Inicial, Primario y Secundario.',
+};
 
 export default function Home() {
     return (
@@ -35,8 +41,14 @@ export default function Home() {
 
                     <div className="relative mt-8 lg:mt-0">
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50 transform rotate-2 hover:rotate-0 transition-all duration-500">
-                            {/* Placeholder for Hero Image - In production use next/image */}
-                            <img src="/assets/images/hero.png" alt="Estudiantes en laboratorio modernas" className="w-full h-auto object-cover scale-105 hover:scale-100 transition-transform duration-700" />
+                            <Image
+                                src="/assets/images/hero.png"
+                                alt="Estudiantes en laboratorio modernas"
+                                width={800}
+                                height={600}
+                                className="w-full h-auto object-cover scale-105 hover:scale-100 transition-transform duration-700"
+                                priority
+                            />
                             <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
 
                             <div className="absolute bottom-8 left-8 right-8 text-white p-6 glass-panel rounded-2xl">
@@ -140,9 +152,8 @@ export default function Home() {
                             return (
                                 <article key={post.id} className="bg-white rounded-3xl overflow-hidden shadow-soft-sm hover:shadow-soft-lg transition-all duration-300 group flex flex-col h-full">
                                     <div className="h-48 bg-gray-200 relative overflow-hidden">
-                                        {/* In production, replace with Next/Image using post.image */}
                                         <div className="absolute inset-0 flex items-center justify-center text-gray-400 bg-gray-100 group-hover:scale-105 transition-transform duration-500">
-                                            {post.image ? <img src={post.image} alt={post.title} className="w-full h-full object-cover" /> : 'IMG'}
+                                            {post.image ? <Image src={post.image} alt={post.title} fill className="object-cover" /> : 'IMG'}
                                         </div>
                                     </div>
                                     <div className="p-8 flex-1 flex flex-col">

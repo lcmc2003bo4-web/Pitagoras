@@ -1,4 +1,11 @@
 
+import Image from 'next/image';
+
+export const metadata = {
+    title: 'Vida Estudiantil | Instituto Educativo Excelencia',
+    description: 'Deportes, arte, pastoral y nuestras modernas instalaciones para el desarrollo integral.',
+};
+
 export default function StudentLife() {
     return (
         <>
@@ -108,14 +115,24 @@ export default function StudentLife() {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
                         {/* Large items span 2 columns/rows */}
                         <div className="col-span-2 row-span-2 relative group overflow-hidden rounded-2xl">
-                            <img src="/assets/images/building_exterior.png" alt="Campus" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                            <Image
+                                src="/assets/images/building_exterior.png"
+                                alt="Campus"
+                                fill
+                                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                            />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
                                 <span className="text-white font-bold text-xl">Campus Verde</span>
                             </div>
                         </div>
 
                         <div className="col-span-1 row-span-1 relative group overflow-hidden rounded-2xl bg-gray-800">
-                            <img src="/assets/images/technology.png" alt="Laboratorio" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                            <Image
+                                src="/assets/images/technology.png"
+                                alt="Laboratorio"
+                                fill
+                                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                            />
                             <div className="absolute inset-0 bg-black/40 hover:bg-black/20 transition-colors flex items-center justify-center">
                                 <span className="text-4xl drop-shadow-lg">🧪</span>
                             </div>
@@ -137,7 +154,12 @@ export default function StudentLife() {
                         </div>
 
                         <div className="col-span-2 row-span-1 relative group overflow-hidden rounded-2xl">
-                            <img src="/assets/images/hero.png" alt="Aulas" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                            <Image
+                                src="/assets/images/hero.png"
+                                alt="Aulas"
+                                fill
+                                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                            />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
                                 <span className="text-white font-bold text-xl">Aulas Interactivas</span>
                             </div>
