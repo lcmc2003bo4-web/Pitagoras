@@ -130,7 +130,7 @@ export default function Admissions() {
             </section>
 
             {/* FAQ */}
-            <section className="section-padding bg-light">
+            <section className="section-padding bg-light pb-24">
                 <div className="container" style={{ maxWidth: '800px' }}>
                     <h2 className="text-center mb-2">Preguntas Frecuentes</h2>
                     <div className="faq-container">
