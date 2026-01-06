@@ -129,6 +129,34 @@ export default function About() {
                     </div>
                 </div>
             </section>
+            {/* Regulatory Framework */}
+            <section className="py-24 bg-background-alt text-center">
+                <div className="container">
+                    <div className="max-w-3xl mx-auto">
+                        <h2 className="mb-6">Nuestro Marco Normativo</h2>
+                        <p className="text-gray-600 text-lg mb-12">
+                            Para garantizar una convivencia armoniosa y el correcto funcionamiento de nuestra institución, ponemos a disposición de toda la comunidad educativa nuestro Reglamento Interno y Normas de Convivencia.
+                        </p>
+
+                        <a href="#" className="inline-flex items-center gap-4 bg-white px-8 py-6 rounded-2xl shadow-soft-md hover:shadow-soft-xl border border-gray-100 hover:border-secondary/30 transition-all group">
+                            <div className="w-16 h-16 bg-red-50 rounded-xl flex items-center justify-center text-red-500 group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div className="text-left">
+                                <h3 className="text-lg font-bold text-primary group-hover:text-secondary transition-colors">Reglamento Interno</h3>
+                                <p className="text-gray-500 text-sm">Descargar PDF (2.5 MB)</p>
+                            </div>
+                            <div className="ml-4 text-gray-300 group-hover:text-secondary transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
         </>
     );
 }
